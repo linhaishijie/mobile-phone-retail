@@ -11,19 +11,8 @@
           <el-button type="primary" @click="search">查询</el-button>
         </el-form-item>
       </el-form>
-      <el-dialog
-        title="新增用户"
-        :visible.sync="dialogVisible"
-        width="50%"
-        :before-close="close"
-      >
-        <el-form
-          ref="form"
-          :rules="formrules"
-          :inline="true"
-          :model="form"
-          label-width="auto"
-        >
+      <el-dialog title="新增用户" :visible.sync="dialogVisible" width="50%" :before-close="close">
+        <el-form ref="form" :rules="formrules" :inline="true" :model="form" label-width="auto">
           <el-form-item prop="name" label="姓名">
             <el-input placeholder="请输入姓名" v-model="form.name"></el-input>
           </el-form-item>
@@ -37,12 +26,7 @@
             </el-select>
           </el-form-item>
           <el-form-item prop="birth" label="出生日期">
-            <el-date-picker
-              v-model="form.birth"
-              type="date"
-              placeholder="选择日期"
-              value-format="yyyy-mm-dd"
-            >
+            <el-date-picker v-model="form.birth" type="date" placeholder="选择日期" value-format="yyyy-mm-dd">
             </el-date-picker>
           </el-form-item>
           <el-form-item prop="addr" label="地址">
@@ -68,24 +52,14 @@
       <el-table-column prop="addr" label="地址"> </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button size="mini" @click="edit(scope.$index, scope.row)"
-            >编辑
+          <el-button size="mini" @click="edit(scope.$index, scope.row)">编辑
           </el-button>
-          <el-button
-            size="mini"
-            type="danger"
-            @click="del(scope.$index, scope.row)"
-            >删除
+          <el-button size="mini" type="danger" @click="del(scope.$index, scope.row)">删除
           </el-button>
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      layout="prev, pager, next"
-      :total="total"
-      @current-change="changePage"
-      class="page"
-    >
+    <el-pagination layout="prev, pager, next" :total="total" @current-change="changePage" class="page">
     </el-pagination>
   </div>
 </template>
@@ -168,9 +142,10 @@ export default {
       this.form = row;
     },
     del(index, row) {
-      this.$confirm("确认删除？");
-      deleteUser({ id: row.id });
-      this.getList();
+      this.$confirm('确认删除').then(() => {
+        deleteUser({ id: row.id });
+        this.getList();
+      })
     },
     getList() {
       getUserList({ params: { ...this.pageData, ...this.userForm } }).then(
@@ -194,21 +169,26 @@ export default {
 };
 </script>
 
-.<style lang="less" scoped>
+<style lang="less" scoped>
 .user {
   height: 100%;
+
   .manage {
     position: relative;
+
     .form {
       position: absolute;
       right: 0;
       top: 0;
     }
   }
+
   .manage {
     // display: flex;
     position: relative;
+    margin-bottom: 3px;
   }
+
   .page {
     position: absolute;
     bottom: 0;

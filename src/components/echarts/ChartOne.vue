@@ -28,8 +28,8 @@ export default {
         },
         yAxis: {
           type: "value",
-          interval: 2.5,
-          max: 17.5,
+          interval: 3,
+          max: 18,
         },
         series: [
           {

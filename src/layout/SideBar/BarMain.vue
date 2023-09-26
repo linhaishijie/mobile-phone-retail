@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       logo: logoImg,
-      title: "若依管理系统",
+      title: "手机零售后台",
     };
   },
   computed: {

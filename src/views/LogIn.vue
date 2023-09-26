@@ -1,28 +1,17 @@
 <template>
   <div id="login">
     <el-form class="login" :model="form" :rules="loginRules" ref="loginForm">
-      <h3>若依后台管理系统</h3>
+      <h3>手机零售后台</h3>
       <el-form-item prop="username">
-        <el-input
-          placeholder="账号"
-          v-model="form.username"
-          prefix-icon="el-icon-user"
-        >
+        <el-input placeholder="账号" v-model="form.username" prefix-icon="el-icon-user">
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input
-          placeholder="密码"
-          type="password"
-          v-model="form.password"
-          prefix-icon="el-icon-key"
-        ></el-input>
+        <el-input placeholder="密码" type="password" v-model="form.password" prefix-icon="el-icon-key"></el-input>
       </el-form-item>
       <el-checkbox v-model="checked" class="remb">记住密码</el-checkbox>
       <el-form-item>
-        <el-button type="primary" class="btn" @click.native="Login"
-          >登 录</el-button
-        >
+        <el-button type="primary" class="btn" @click.native="Login">登 录</el-button>
       </el-form-item>
     </el-form>
     <div class="footer">
@@ -85,12 +74,14 @@ export default {
   height: 100%;
   background-image: url(../assets/bg.jpg);
   background-size: cover;
+
   .login {
     border-radius: 6px;
     background: #fff;
     width: 400px;
     padding: 25px 25px 5px 25px;
     box-sizing: border-box;
+
     h3 {
       font-weight: 500;
       line-height: 1.1;
@@ -98,6 +89,7 @@ export default {
       margin: 0 auto 30px auto;
       text-align: center;
     }
+
     .remb {
       display: inline-block;
       line-height: 19px;
@@ -105,11 +97,13 @@ export default {
       cursor: pointer;
       margin: 0px 0px 25px 0px;
     }
+
     .btn {
       width: 100%;
       font-size: 14px;
     }
   }
+
   .footer {
     height: 40px;
     line-height: 40px;

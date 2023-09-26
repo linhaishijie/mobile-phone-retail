@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="#">点我去仓库看源码</a>
+    <a href="https://github.com/linhaishijie/my-app">点我去仓库看源码</a>
   </div>
 </template>
 

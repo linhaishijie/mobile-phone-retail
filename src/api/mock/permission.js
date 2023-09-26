@@ -19,7 +19,7 @@ export default {
                         {
                             path: '/user',
                             name: 'user',
-                            label: '用户管理',
+                            label: '客户管理',
                             icon: 's-custom',
                             url: 'MyUser.vue'
                         },
